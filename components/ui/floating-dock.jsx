@@ -86,7 +86,7 @@ const FloatingDockDesktop = ({ items, className }) => {
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "fixed bottom-10 mx-auto hidden md:flex h-20 gap-8 items-end justify-between rounded-full bg-gray-50 dark:bg-neutral-900 px-4 pb-3 shadow-md shadow-orange-400/30",
+        "fixed bottom-10  z-20 mx-auto hidden md:flex h-20 gap-8 items-end justify-between rounded-full bg-gray-200 dark:bg-neutral-900 px-4 pb-3 border-2 border-black/5 dark:border-white/5",
         className
       )}
     >
@@ -147,7 +147,7 @@ function IconContainer({ mouseX, title, icon, href, isLogo }) {
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative"
+        className="aspect-square rounded-full bg-gray-300 dark:bg-neutral-800 flex items-center justify-center relative"
       >
         {title.length > 0 && (
           <AnimatePresence>
@@ -156,7 +156,7 @@ function IconContainer({ mouseX, title, icon, href, isLogo }) {
                 initial={{ opacity: 0, y: 10, x: "-50%" }}
                 animate={{ opacity: 1, y: 0, x: "-50%" }}
                 exit={{ opacity: 0, y: 2, x: "-50%" }}
-                className="px-2 py-0.5 whitespace-pre rounded-md bg-gray-100 border dark:bg-neutral-800 dark:border-neutral-900 dark:text-white border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
+                className="px-2 py-0.5 whitespace-pre rounded-full bg-gray-300 border dark:bg-neutral-800 dark:border-neutral-900 dark:text-white border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
               >
                 {title}
               </motion.div>
@@ -174,7 +174,7 @@ function IconContainer({ mouseX, title, icon, href, isLogo }) {
                 hovered ? { x: "100%", y: "100%" } : { x: "-100%", y: "-100%" }
               }
               transition={{ duration: 1, repeat: Infinity }}
-              className="absolute w-full h-full bg-gradient-to-br from-transparent via-white/40 to-transparent -rotate-45 pointer-events-none"
+              className="absolute w-full h-full bg-gradient-to-br from-transparent via-white/40 to-transparent -rotate-45 pointer-events-none rounded-full"
             />
           )}
           {icon}

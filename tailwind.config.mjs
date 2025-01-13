@@ -69,6 +69,10 @@ export default {
         },
       },
     },
+    fontFamily: {
+      sans: ["var(--font-geist-sans)"],
+      playwrite: ["var(--font-playwrite)"],
+    }
   },
   plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
