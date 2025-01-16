@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import Fun from "../../assets/images/guys/1.png";
+import Fun from "../../assets/images/guys/4.png";
 import Simple from "../../assets/images/guys/3.png";
 import { cn } from "@/lib/utils";
 import Image from "next/image";

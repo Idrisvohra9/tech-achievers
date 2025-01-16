@@ -46,7 +46,7 @@ export default function SparklyLogo() {
         <Image
           alt="logo"
           src={Logo}
-          className="h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 lg:h-52 lg:w-52 relative z-10 shadow-black"
+          className="h-28 w-28 sm:h-40 sm:w-40 md:h-48 md:w-48 lg:h-48 lg:w-48 relative z-10 shadow-black"
         />
         <SparklesText
           text="Tech Achievers"

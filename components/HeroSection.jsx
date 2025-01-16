@@ -40,7 +40,7 @@ export default function HeroSection() {
       <SparklyLogo />
       <div className="w-screen h-screen flex justify-center items-center absolute left-0 top-52 pointer-events-none">
         <Link
-          className="bg-[#c4302b] text-white border border-[#c4302b] border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-4 text-xl pointer-events-auto"
+          className="bg-[#c4302b] text-white border border-[#da827f] border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-4 text-xl pointer-events-auto"
           href="https://www.youtube.com/@TechAchievers-IV/featured"
         >
           <span className="bg-white shadow-white absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>

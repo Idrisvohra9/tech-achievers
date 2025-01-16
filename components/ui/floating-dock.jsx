@@ -165,7 +165,7 @@ function IconContainer({ mouseX, title, icon, href, isLogo }) {
         )}
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center w-32 h-32 relative overflow-hidden group"
+          className="flex items-center justify-center w-24 h-24 relative overflow-hidden group"
         >
           {isLogo && (
             <motion.div
