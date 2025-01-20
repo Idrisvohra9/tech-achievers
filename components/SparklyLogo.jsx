@@ -40,7 +40,7 @@ export default function SparklyLogo() {
   return (
     <div className="w-screen h-screen flex justify-center items-center absolute top-0 left-0 pointer-events-none flex-col ">
       <div
-        className="flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105 drop-shadow-2xl cursor-pointer "
+        className="flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105 drop-shadow-2xl cursor-pointer pointer-events-auto"
         onClick={handleClick}
       >
         <Image
@@ -50,7 +50,7 @@ export default function SparklyLogo() {
         />
         <SparklesText
           text="Tech Achievers"
-          className={"font-playwrite text-gray-100 mt-4 pointer-events-auto"}
+          className={"font-playwrite text-gray-100 mt-4"}
         />
         <audio ref={audioRef} src="/music/daAudio.mp3" />
       </div>

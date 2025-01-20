@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono, Playwrite_IN } from "next/font/google";
 import "./globals.css";
 import { FloatingDockDemo } from "@/components/FloatingDock";
-import { ReactLenis } from "@/lib/lenis"
+import { ReactLenis } from "@/lib/lenis";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

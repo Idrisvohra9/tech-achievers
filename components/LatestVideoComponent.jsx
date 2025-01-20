@@ -2,7 +2,7 @@ import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 import BoxReveal from "./ui/box-reveal";
 export function LatestVideoComponent() {
   return (
-    <div className="w-full h-screen flex justify-center items-center relative p-5 flex-col">
+    <div className="w-full h-screen flex justify-center items-center relative p-8 flex-col">
       <BoxReveal boxColor={"#fd8bbc"} duration={0.7}>
         <h2 className="text-5xl font-extrabold text-gray-100 text-center">
           Our Latest Video
