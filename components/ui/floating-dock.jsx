@@ -16,6 +16,8 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+
 export const FloatingDock = ({ items, desktopClassName, mobileClassName }) => {
   return (
     <>
@@ -27,6 +29,7 @@ export const FloatingDock = ({ items, desktopClassName, mobileClassName }) => {
 
 const FloatingDockMobile = ({ items, className }) => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <div
       className={cn("fixed bottom-24 right-10 z-20 block md:hidden", className)}
@@ -60,6 +63,9 @@ const FloatingDockMobile = ({ items, className }) => {
                   className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center relative z-20"
                 >
                   <div className="h-4 w-4">{item.icon}</div>
+                  {pathname === item.href && (
+                    <div className="absolute -bottom-1 w-1 h-1 rounded-full bg-current" />
+                  )}
                 </Link>
               </motion.div>
             ))}
@@ -81,23 +87,23 @@ const FloatingDockMobile = ({ items, className }) => {
 };
 const FloatingDockDesktop = ({ items, className }) => {
   let mouseX = useMotionValue(Infinity);
+  const pathname = usePathname();
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "fixed bottom-10  z-20 mx-auto hidden md:flex h-20 gap-8 items-end justify-between rounded-full bg-gray-200 dark:bg-neutral-900 px-4 pb-3 border-2 border-black/5 dark:border-white/5",
-        className
+        "fixed bottom-10 z-20 mx-auto hidden md:flex h-20 gap-8 items-end justify-between rounded-full bg-gray-200/50 dark:bg-neutral-900/50 backdrop-blur-md backdrop-saturate-150 px-4 pb-3 border-2 border-black/5 dark:border-white/5",        className
       )}
     >
       {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        <IconContainer mouseX={mouseX} key={item.title} {...item} isActive={pathname === item.href} />
       ))}
     </motion.div>
   );
 };
 
-function IconContainer({ mouseX, title, icon, href, isLogo }) {
+function IconContainer({ mouseX, title, icon, href, isLogo, isActive, target }) {
   let ref = useRef(null);
 
   let distance = useTransform(mouseX, (val) => {
@@ -141,7 +147,7 @@ function IconContainer({ mouseX, title, icon, href, isLogo }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <Link href={href}>
+    <Link href={href} target={target || "_self"}>
       <motion.div
         ref={ref}
         style={{ width, height }}
@@ -179,6 +185,9 @@ function IconContainer({ mouseX, title, icon, href, isLogo }) {
           )}
           {icon}
         </motion.div>
+        {isActive && (
+          <div className="absolute bottom-1 w-1 h-1 rounded-full bg-gray-400/50" />
+        )}
       </motion.div>
     </Link>
   );

@@ -19,6 +19,7 @@ export function FloatingDockDemo() {
       icon: <Image alt="logo" src={Logo} className="h-full w-full" />,
       href: "https://www.youtube.com/@TechAchievers-IV/featured",
       isLogo: true,
+      target: "_blank",
     },
     {
       title: "Home",
@@ -56,6 +57,7 @@ export function FloatingDockDemo() {
         <Github className="h-full w-full text-gray-800 dark:text-gray-200" />
       ),
       href: "https://github.com/Idrisvohra9",
+      target: "_blank",
     },
   ];
   return (
