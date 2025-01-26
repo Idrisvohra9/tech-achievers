@@ -60,12 +60,12 @@ const FloatingDockMobile = ({ items, className }) => {
                 <Link
                   href={item.href}
                   key={item.title}
-                  className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center relative z-20"
+                  className={`h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center relative z-20 ${
+                    pathname === item.href && "dark:bg-neutral-600"
+                  }`}
+                  target={item.target || "_self"}
                 >
                   <div className="h-4 w-4">{item.icon}</div>
-                  {pathname === item.href && (
-                    <div className="absolute -bottom-1 w-1 h-1 rounded-full bg-current" />
-                  )}
                 </Link>
               </motion.div>
             ))}
@@ -93,17 +93,31 @@ const FloatingDockDesktop = ({ items, className }) => {
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "fixed bottom-10 z-20 mx-auto hidden md:flex h-20 gap-8 items-end justify-between rounded-full bg-gray-200/50 dark:bg-neutral-900/50 backdrop-blur-md backdrop-saturate-150 px-4 pb-3 border-2 border-black/5 dark:border-white/5",        className
+        "fixed bottom-10 z-20 mx-auto hidden md:flex h-20 gap-8 items-end justify-between rounded-full bg-gray-200/50 dark:bg-neutral-900/50 backdrop-blur-md backdrop-saturate-150 px-4 pb-3 border-2 border-black/5 dark:border-white/5",
+        className
       )}
     >
       {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} isActive={pathname === item.href} />
+        <IconContainer
+          mouseX={mouseX}
+          key={item.title}
+          {...item}
+          isActive={pathname === item.href}
+        />
       ))}
     </motion.div>
   );
 };
 
-function IconContainer({ mouseX, title, icon, href, isLogo, isActive, target }) {
+function IconContainer({
+  mouseX,
+  title,
+  icon,
+  href,
+  isLogo,
+  isActive,
+  target,
+}) {
   let ref = useRef(null);
 
   let distance = useTransform(mouseX, (val) => {
@@ -171,7 +185,9 @@ function IconContainer({ mouseX, title, icon, href, isLogo, isActive, target }) 
         )}
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center w-24 h-24 relative overflow-hidden group rounded-full"
+          className={`flex items-center justify-center w-24 h-24 relative overflow-hidden group ${
+            isLogo && "rounded-full"
+          }`}
         >
           {isLogo && (
             <motion.div
@@ -180,13 +196,17 @@ function IconContainer({ mouseX, title, icon, href, isLogo, isActive, target }) 
                 hovered ? { x: "100%", y: "100%" } : { x: "-100%", y: "-100%" }
               }
               transition={{ duration: 1, repeat: Infinity }}
-              className="absolute w-full h-full bg-gradient-to-br from-transparent via-white/40 to-transparent -rotate-45 pointer-events-none rounded-full"
+              className="absolute w-full h-full bg-gradient-to-br from-transparent via-white/40 to-transparent -rotate-45 pointer-events-none"
             />
           )}
           {icon}
         </motion.div>
         {isActive && (
-          <div className="absolute bottom-1 w-1 h-1 rounded-full bg-gray-400/50" />
+          <div
+            className={`absolute bottom-1 w-1 h-1 rounded-full bg-gray-400/50 transition-transform duration-100 ${
+              hovered && "scale-150"
+            }`}
+          />
         )}
       </motion.div>
     </Link>

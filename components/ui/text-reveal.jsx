@@ -16,7 +16,7 @@ export const TextRevealByWord = ({ text, className }) => {
 
   return (
     <div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-gray-800"></div>
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-gray-800/60"></div>
       <div
         className={
           "sticky top-0 mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[5rem]"

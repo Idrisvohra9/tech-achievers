@@ -3,11 +3,11 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   HomeIcon,
   GraduationCap,
-  Users2,
   Youtube,
   Github,
   Mail,
   Briefcase,
+  Rocket
 } from "lucide-react";
 import Image from "next/image";
 import Logo from "@/assets/images/brainy.png";
@@ -16,7 +16,7 @@ export function FloatingDockDemo() {
   const links = [
     {
       title: "",
-      icon: <Image alt="logo" src={Logo} className="h-full w-full" />,
+      icon: <Image alt="logo" src={Logo} className="h-full w-full object-contain" />,
       href: "https://www.youtube.com/@TechAchievers-IV/featured",
       isLogo: true,
       target: "_blank",
@@ -28,7 +28,7 @@ export function FloatingDockDemo() {
     },
     {
       title: "About",
-      icon: <Users2 className="h-full w-full text-purple-500" />,
+      icon: <Rocket className="h-full w-full text-purple-500" />,
       href: "/about",
     },
     {

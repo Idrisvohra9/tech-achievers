@@ -7,16 +7,15 @@ export function FlipText({
   word,
   duration = 0.5,
   delayMultiple = 0.08,
-
   framerProps = {
     hidden: { rotateX: -90, opacity: 0 },
     visible: { rotateX: 0, opacity: 1 },
   },
-
-  className
+  className,
+  onMouseOver,
 }) {
   return (
-    (<div className="flex justify-center space-x-2">
+    (<span className="inline-flex justify-center" onMouseOver={onMouseOver}>
       <AnimatePresence mode="wait">
         {word.split("").map((char, i) => (
           <motion.span
@@ -31,6 +30,6 @@ export function FlipText({
           </motion.span>
         ))}
       </AnimatePresence>
-    </div>)
+    </span>)
   );
 }

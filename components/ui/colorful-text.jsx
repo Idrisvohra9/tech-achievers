@@ -2,9 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 
-export function ColourfulText({
-  text
-}) {
+export function ColourfulText({ text, onMouseOver }) {
   const colors = [
     "rgb(131, 179, 32)",
     "rgb(47, 195, 106)",
@@ -48,7 +46,9 @@ export function ColourfulText({
         duration: 0.5,
         delay: index * 0.05,
       }}
-      className="inline-block whitespace-pre font-sans tracking-tight">
+      className="inline-block whitespace-pre font-sans tracking-tight"
+      onMouseOver={onMouseOver}
+    >
       {char}
     </motion.span>
   ));
