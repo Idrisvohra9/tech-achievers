@@ -2,7 +2,7 @@ import React from "react";
 
 const Socials = () => {
   return (
-    <ul className="flex justify-end mt-5 space-x-5">
+    <ul className="flex md:justify-end justify-center mt-5 space-x-5">
       <li>
         <a
           className="text-gray-500 cursor-pointer hover:text-white"
